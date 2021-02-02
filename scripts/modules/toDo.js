@@ -53,6 +53,16 @@ export default class ToDo {
     localStorage.setItem('tasks', tasksJSON)
   }
 
+  addSavedTasks() {
+    const tasks = localStorage.getItem('tasks')
+    const tasksList = JSON.parse(tasks);
+
+    for(let task of tasksList) {
+      this.createTask(task);
+    }
+  }
+
+
   addEventListeners() {
     this.button.addEventListener('click', this.captureTask);
     this.input.addEventListener('keypress', (e) => {
@@ -73,5 +83,6 @@ export default class ToDo {
 
   init() {
     this.addEventListeners();
+    this.addSavedTasks();
   }
 }
