@@ -8,3 +8,45 @@
 html {
   font-size: 62.5%;
 }
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+.header {
+  background-color: #2e3131;
+  height: 20vh;
+  padding: 30px 20px 30px 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header .input-tarefa {
+  padding: 15px 10px;
+  outline: none;
+  border: none;
+}
+
+.header .add-tarefa {
+  padding: 15px 10px;
+  border: none;
+}
+
+.list {
+  background-color: #bfbfbf;
+  height: 80vh;
+}
+
+@media (min-width: 768px) {
+  .header .add-tarefa,
+  .header .input-tarefa {
+    padding: 20px 15px;
+  }
+
+  .header {
+    justify-content: flex-start;
+  }
+}
