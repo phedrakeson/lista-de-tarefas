@@ -46,7 +46,6 @@ export default class ToDo {
     for( let task of allTasks) {
       let taskText = task.innerText;
       tasksList.push(taskText);
-      console.log(tasksList)
     }
 
     const tasksJSON = JSON.stringify(tasksList);
