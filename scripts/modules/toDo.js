@@ -17,6 +17,25 @@ export default class ToDo {
     const li = document.createElement('li');
     li.innerText = task;
     this.list.appendChild(li);
+    this.clearInput();
+    this.createRemoveBtn(li);
+  }
+
+  clearInput() {
+    this.input.value = '';
+    this.input.focus();
+  }
+
+  createRemoveBtn(task) {
+    const img = document.createElement('img');
+    img.setAttribute('src', './assets/remove.svg');
+    img.setAttribute('alt', 'Remover');
+    img.setAttribute('class', 'apagar')
+    task.appendChild(img);
+  }
+
+  removeTask(task) {
+    task.remove();
   }
 
   addEventListeners() {
@@ -25,7 +44,16 @@ export default class ToDo {
       if(e.keyCode === 13) 
         return this.captureTask();
     });
+
+    document.addEventListener('click', (e) => {
+      if(el.classList.contains('apagar')) {
+        const task = el.parentElement;
+        this.removeTask(task);
+      }
+    });
   }
+
+  
 
   init() {
     this.addEventListeners();
