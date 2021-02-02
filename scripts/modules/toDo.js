@@ -19,6 +19,7 @@ export default class ToDo {
     this.list.appendChild(li);
     this.clearInput();
     this.createRemoveBtn(li);
+    this.saveTasks();
   }
 
   clearInput() {
@@ -36,6 +37,20 @@ export default class ToDo {
 
   removeTask(task) {
     task.remove();
+    this.saveTasks()
+  }
+
+  saveTasks() {
+    const allTasks = this.list.querySelectorAll('li');
+    const tasksList = [];
+    for( let task of allTasks) {
+      let taskText = task.innerText;
+      tasksList.push(taskText);
+      console.log(tasksList)
+    }
+
+    const tasksJSON = JSON.stringify(tasksList);
+    localStorage.setItem('tasks', tasksJSON)
   }
 
   addEventListeners() {
