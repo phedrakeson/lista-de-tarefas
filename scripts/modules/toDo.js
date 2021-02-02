@@ -46,6 +46,7 @@ export default class ToDo {
     });
 
     document.addEventListener('click', (e) => {
+      const el = e.target;
       if(el.classList.contains('apagar')) {
         const task = el.parentElement;
         this.removeTask(task);
